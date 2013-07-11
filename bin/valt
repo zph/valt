@@ -1,0 +1,27 @@
+#!/usr/bin/env ruby
+
+$LOAD_PATH.unshift(File.dirname(__FILE__), '..', 'lib')
+
+require "valt"
+require "shellwords"
+
+case ARGV.count
+when 0
+  # directly read from config file
+  CONFIG = File.expand_path("~/.valt.d/zph/.vimrc")
+  puts "This will run directly"
+  command = []
+  #TODO: break commands into small components that are concatenated
+  #TODO: replace hard coding with variables
+  #TODO: add command-wide variables ie stuff from .valtrc
+  command = [
+    %q(vim --cmd 'let &rtp =),
+    %q( substitute),
+    %q((&rtp, "\.vim", "\.valt.d/zph/\.vim", "g")'),
+    " -u #{CONFIG}",
+    %q( --cmd 'set nocompatible'),
+  ].join
+  system(command)
+else
+  Valt::CLI.start(ARGV)
+end
