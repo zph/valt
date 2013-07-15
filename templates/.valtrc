@@ -1,0 +1,8 @@
+# Sample file that would exist at ~/.valtrc
+---
+:basename: .valtrc
+:path: /Users/zander
+:full_path: /Users/zander/.valtrc
+:valt_d_path: /Users/zander/.valt.d
+:username: zph
+:version: 0.0.0

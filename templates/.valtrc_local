@@ -1,0 +1,6 @@
+# Exists in user's valt.d subdir, ie ~/.valt.d/zph/.valtrc_local
+# Used to load local user's settings into shell
+# Prepend local bin to path
+if [ -d "${PWD}/bin" ];then
+  export PATH=$PWD/bin:$PATH
+fi
