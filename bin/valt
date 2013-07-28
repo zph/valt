@@ -12,7 +12,7 @@ when 0
   command = [
     %q(vim --cmd 'let &rtp =),
     %q( substitute),
-    %q((&rtp, "\.vim", "\.valt.d/USERVAR/\.vim", "g")').gsub(/USERVAR/, config[:username]),
+    %q((&rtp, "$HOME/\.vim", "$HOME\.valt.d/USERVAR/\.vim", "g")').gsub(/USERVAR/, config[:username]),
     " -u #{VIMRC_PATH}",
     %q( --cmd 'set nocompatible'),
   ].join
